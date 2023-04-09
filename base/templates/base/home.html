@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+Home
+{% endblock %}
+{% block head %}
+<!-- CSS files -->
+<!-- <link rel="stylesheet" href="{% static 'base/css/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<link rel="stylesheet" href="{% static 'base/css/home.css' %}">
+<header  style="background-image: linear-gradient(90deg, rgba(28, 28, 28, 0.243), rgba(0, 6, 37, 0.869)), url('{% static 'base/images/bg.svg' %}');" class="w-full min-h-screen bg-cover grid place-items-center">
+    <div class="bg-blend-difference backdrop-blur w-full h-full grid place-items-center">
+        <div class="grid place-items-center my-auto container mx-auto px-4">
+            <div class="grid grid-cols-1 mx-auto w-full">
+                <div class="w-fit flex flex-col gap-3 max-w-screen-lg mx-auto">
+                    <h1 class="font-bold font-raleway text-5xl">Welcome to TutorAI</h1>
+                    <h2 class="text-lg">Get ready to learn with <b class="font-bold text-xl font-raleway mx-1" >TutorAI</b>! Our conversational AI will help you gain a deeper understanding of any topic you're curious about.</h2>
+                    <ul class="flex flex-row flex-wrap gap-3 justify-center text-sm">
+                        <li class="font-raleway font-bold tracking-wider bg-zinc-900/30 border-white border-2 px-4 py-2 rounded"><a href="{% provider_login_url 'google' %}">Start your learning journey</a></li>
+                        <li class="font-raleway font-bold tracking-wider bg-zinc-500/30 border-zinc-600 hover:border-white border-2 px-4 py-2 rounded"><a href="{% provider_login_url 'google' %}">Login with Google</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</header>
+<main>
+</main>
+<script src="{% static 'base/js/changeTo.js' %}"></script>
+<script src="{% static 'base/js/countdown.js' %}"></script>
+{% endblock %}
