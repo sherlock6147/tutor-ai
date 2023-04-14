@@ -1,0 +1,32 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+Register
+{% endblock %}
+{% block head %}
+<!-- CSS files -->
+<!-- <link rel="stylesheet" href="{% static 'base/css/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<main class="grid place-items-center pt-16 h-full my-auto min-h-screen">
+    <div class="p-6 rounded-xl bg-zinc-500/30 flex flex-col gap-4 w-full max-w-lg">
+        <h2 class="text-center font-raleway font-semibold text-xl">Complete Registration</h2>
+        <form action="" method="post">
+            {%csrf_token%}
+            
+            <fieldset class="flex flex-row w-full justify-center align-middle gap-4">
+
+                <label for="idphone" class="my-auto font-bold text-lg ">Phone</label>
+                <input type="tel" name="phone" id="phone" class="bg-zinc-100/20  px-4 py-2 rounded">
+            </fieldset>
+            <fieldset class="flex flex-row justify-center">
+                <input type="submit" value="Save" name="save-btn" class="custom-btn mt-4 mx-auto">
+            </fieldset>
+        </form>
+    </div>
+</main>
+<script src="{% static 'base/js/changeTo.js' %}"></script>
+<script src="{% static 'base/js/countdown.js' %}"></script>
+{% endblock %}

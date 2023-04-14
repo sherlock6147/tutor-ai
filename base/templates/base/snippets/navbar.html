@@ -8,7 +8,13 @@
     <li class="hidden lg:block my-auto">
       <ul class="flex flex-row gap-6 ">
         <li><a href="{% url 'base:home' %}#" class="nav-item">Home</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'topics:all_topics' %}" class="nav-item">Topics</a></li>
+        <li><a href="{% url 'learners:profile' %}" class="nav-item">Profile</a></li>
+        <li><a href="{% url 'account_logout' %}" class="nav-item">Logout</a></li>
+        {% else %}
         <li><a href="{% provider_login_url 'google' %}" class="nav-item">Login</a></li>
+        {% endif %}
       </ul>
     </li>
     <li class="lg:hidden mt-5">

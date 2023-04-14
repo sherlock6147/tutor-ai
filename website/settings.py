@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'base',
+    'learners',
+    'topics',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -123,7 +125,7 @@ USE_TZ = True
 #  google alllauth
 SITE_ID = 1
 LOGIN_URL = '/accounts/google/login'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/learners/profile'
 SOCIALACCOUNT_LOGIN_ON_GET = True
 ACCOUNT_LOGOUT_ON_GET = True
 SOCIALACCOUNT_PROVIDERS = {
