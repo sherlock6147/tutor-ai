@@ -20,8 +20,9 @@ class Topic(models.Model):
 class SubTopic(models.Model):
     name = models.CharField(max_length=200)
     order =  models.IntegerField(default=0)
+    description = models.TextField(default="")
     topic = models.ForeignKey(Topic,on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return self.topic.name + "| " + self.name
+        return str(self.topic.name + "| " + self.name + "|" + self.description)[:50]
 

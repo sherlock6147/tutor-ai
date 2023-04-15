@@ -16,6 +16,7 @@ Subtopic Subtopic
         <form action="" method="post" class="bg-gradient-to-bl from-zinc-800/20 to-slate-100/10 py-4 border-white border-2 shadow-lg shadow-zinc-100/20 px-5 rounded-sm mx-auto flex flex-col gap-4 w-full max-w-lg">
             {%csrf_token%}
             <input type="text"value="{{subtopic.name}}" class="px-3 py-2 rounded text-black bg-zinc-100/80 placeholder-black" name="subtopic_name" required>
+            <textarea name="subtopic_desc" id="desc" cols="10" rows="4" class="rounded text-black bg-zinc-100/80 placeholder-black p-3" placeholder="Subtopic Description" required>{{subtopic.description}}</textarea>
             <input type="submit" value="Save" class="bg-zinc-900 w-fit  mx-auto px-3 py-2 rounded cursor-pointer" name="save-subtopic">
         </form>
     </div>

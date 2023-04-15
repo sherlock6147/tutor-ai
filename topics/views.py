@@ -75,9 +75,11 @@ def add_subtopic(request,topic_id):
     if request.method == 'POST':
         if 'save-subtopic' in request.POST:
             subtopic_name = request.POST.get('subtopic_name')
+            subtopic_desc = request.POST.get('subtopic_desc')
             subtopic = SubTopic()
             subtopic.name = subtopic_name
             subtopic.topic = topic
+            subtopic.description = subtopic_desc
             subtopic.save()
             messages.success(request,str(subtopic) + " successfully added.")
             return redirect('/topics/')
@@ -94,7 +96,9 @@ def edit_subtopic(request,subtopic_id):
     if request.method == 'POST':
         if 'save-subtopic' in request.POST:
             subtopic_name = request.POST.get('subtopic_name')
+            subtopic_desc = request.POST.get('subtopic_desc')
             subtopic.name = subtopic_name
+            subtopic.description = subtopic_desc
             subtopic.save()
             messages.success(request,str(subtopic) + " successfully updated.")
             return redirect('/topics/')

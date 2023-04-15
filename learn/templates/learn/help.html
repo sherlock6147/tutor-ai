@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% load socialaccount %}
+
+{% block title %}
+All Topics
+{% endblock %}
+{% block head %}
+<!-- CSS files -->
+<!-- <link rel="stylesheet" href="{% static 'base/css/home.css' %}"> -->
+{% endblock %}
+{% block content %}
+<section class="min-h-screen bg-gradient-to-br from-zinc-900 to-indigo-900/30 w-full grid place-items-center px-4">
+    <div class="flex flex-col w-full mx-auto text-center container gap-3">
+        <h2 class="text-xl font-raleway font-bold">Instructions</h2>
+        <div class="bg-gradient-to-bl from-zinc-800/20 to-slate-100/10 py-4 border-white border-2 shadow-lg shadow-zinc-100/20 px-5 rounded-sm mx-auto flex flex-col gap-4 w-full max-w-lg container ">
+            <ul class="text-left list-decimal ml-3 flex flex-col gap-3 ">
+                <li>After choosing the subtopic to learn, you are shown some information about the subtopic. This is information for you to learn, you will be asked questions from this information later.</li>
+                <li>When you feel that you are confident with what you learnt, you can use the start prompt to answer some questions regarding the information. Example: "/start learning"</li>
+                <li>You can answer the question using /answer prompt. Example: "/answer your answer". After answering a question you will be told whether your answer is correct or not</li>
+                <li>If you want to learn more about the subtopic then use the /learn prompt. Example: "/learn more"</li>
+                <li>
+                    When you feel comfortable with the topic, you can use the evaluate prompt to evaluate your answers till now. Example: "/evaluate everything". If you have done enough questions, you can go to next subtopic.
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<script src="{% static 'base/js/changeTo.js' %}"></script>
+<script src="{% static 'base/js/countdown.js' %}"></script>
+{% endblock %}

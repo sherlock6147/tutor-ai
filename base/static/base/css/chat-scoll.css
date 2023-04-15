@@ -1,0 +1,14 @@
+#history {
+    /* Foreground, Background */
+    scrollbar-color: #999 #333;
+  }
+#history::-webkit-scrollbar {
+    width: 10px; /* Mostly for vertical scrollbars */
+    height: 10px; /* Mostly for horizontal scrollbars */
+}
+#history::-webkit-scrollbar-thumb { /* Foreground */
+    background: #999;
+}
+#history::-webkit-scrollbar-track { /* Background */
+    background: #333;
+}

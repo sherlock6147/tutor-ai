@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'base',
     'learners',
     'topics',
+    'learn',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
@@ -145,6 +146,8 @@ SOCIALACCOUNT_PROVIDERS = {
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'base/static'),
+    os.path.join(BASE_DIR, 'learners/static'),
+    os.path.join(BASE_DIR, 'learn/static'),
 )
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 

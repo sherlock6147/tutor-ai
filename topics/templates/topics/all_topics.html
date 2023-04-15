@@ -59,7 +59,7 @@ All Topics
                         {% else %}
                             {% for st in topic.subtopics %}
                             <li class="flex flex-row w-full justify-between gap-2">
-                                <a href="#" class="underline-offset-8 underline">
+                                <a href="{% url 'learn:learn_subtopic' st.id  %}" class="underline-offset-8 underline">
                                     {{st.name}}
                                 </a>
                                 <div class="flex flex-row gap-2">

@@ -1,0 +1,28 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'learn/css/chat-scroll.css' %}">
+<ul class="flex flex-col w-full px-3 mt-4 gap-3" id="history">
+    {% for chat in history %}
+    {% load static %}
+        {% if chat %}
+            {% if chat.from_ai %}
+                <li class="flex flex-row justify-between gap-2 chat-prompt">
+                    <img src="{% static 'base/images/logo.png' %}" alt="TutorAI" class="w-8 h-8 object-cover rounded-full border border-zinc-50
+                        ">
+                    <div class="text-sm px-3 py-2 rounded border border-zinc-600 w-full">
+                        <article>{{chat.message}}</article>
+                        <small>{{chat.created_on}}</small>
+                    </div>
+                </li>
+            {% else %}
+                <li class="flex flex-row-reverse justify-between gap-2 chat-prompt">
+                        <img src="{{learner.profile_img}}" alt="TutorAI" style="" class="w-8 h-8 object-cover rounded-full border border-zinc-50
+                        ">
+                    <div class="text-sm px-3 py-2 rounded border border-zinc-600 w-full">
+                        <article>{{chat.message}}</article>
+                        <small>{{chat.created_on}}</small>
+                    </div>
+                </li>
+            {% endif %}
+        {% endif %}
+    {% endfor %}
+</ul>

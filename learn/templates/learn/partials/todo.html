@@ -1,0 +1,18 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'learn/css/chat-scroll.css' %}">
+
+    <li class="flex flex-row justify-between gap-2">
+        <img src="{% static 'base/images/logo.png' %}" alt="TutorAI" class="w-8 h-8 object-cover rounded-full border border-zinc-50
+            ">
+        <div class="text-sm px-3 py-2 rounded border border-zinc-600 w-full">
+            <article>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Hic molestiae fugit, consequatur veritatis atque perspiciatis ab aliquam, maiores nemo reprehenderit, error at adipisci eveniet? Fugiat, nemo. Maxime nisi officia consectetur.</article>
+        </div>
+    </li>
+
+    <li class="flex flex-row-reverse justify-between gap-2">
+            <img src="{{learner.profile_img}}" alt="TutorAI" style="" class="w-8 h-8 object-cover rounded-full border border-zinc-50
+            ">
+        <div class="text-sm px-3 py-2 rounded border border-zinc-600 w-full">
+            <article>{{todo.title}}</article>
+        </div>
+    </li>
