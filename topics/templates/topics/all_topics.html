@@ -62,6 +62,7 @@ All Topics
                                 <a href="{% url 'learn:learn_subtopic' st.id  %}" class="underline-offset-8 underline">
                                     {{st.name}}
                                 </a>
+                                {% if is_moderator %}
                                 <div class="flex flex-row gap-2">
                                     <a href="{% url 'topics:edit_subtopic' st.id %}" class="underline-offset-8 underline">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
@@ -77,6 +78,7 @@ All Topics
                                           
                                     </a>
                                 </div>
+                                {% endif %}
                             </li>
                             {% endfor %}
                         {% endif %}

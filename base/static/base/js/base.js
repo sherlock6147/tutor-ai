@@ -9,8 +9,9 @@ function closeAll() {
     }
 }
 
-// document.addEventListener('DOMContentLoaded', function () {
-//     const myTimeout = setTimeout(closeAll, 4500);
+document.addEventListener('DOMContentLoaded', function () {
+    const myTimeout = setTimeout(closeAll, 4500);
+});
 //     // console.log('Set all messages to closed');
 //     const faviconTag = document.getElementById("faviconTag");
     

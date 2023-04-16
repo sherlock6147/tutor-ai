@@ -82,11 +82,13 @@ def createAnswerPrompt(subtopic:SubTopic,context,**kwargs):
     chat_prompt.from_ai = True
     chat_prompt.subtopic = subtopic
     chat_prompt.save()
-    createHelpPrompt(subtopic,context,message="You can use the /start commmand to answer more questions")
+    createHelpPrompt(subtopic,context,message="You can use the /start commmand to answer more questions or the /evaluate command to evaluate your progress")
 
 def is_answer_correct_ques(subtopic:SubTopic,context,question:Question):
     response  = is_this_answer_correct(subtopic.name,subtopic.description,question.content,question.answer_response)
+    print(response)
     if 'yes' in  str(response).lower():
         createAnswerPrompt(subtopic,context,response=response)
         return True
+    createAnswerPrompt(subtopic,context,response=response)
     return False

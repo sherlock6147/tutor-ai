@@ -4,11 +4,14 @@ from topics.models import *
 from learn.models import *
 from django.views.decorators.http import require_http_methods
 from learn.prompts import *
+from django.contrib import messages
 from django.utils import timezone
+from django.contrib.auth.decorators import login_required
 
 PASS_PERCENTAGE = 75
 
 # Create your views here.
+@login_required
 def learn_subtopic(request,subtopic_id):
     context = prepare_context(request)
     subtopic = get_object_or_404(SubTopic,id=subtopic_id)
@@ -78,6 +81,19 @@ def chat_with_ai(request,subtopic_id):
         if percentage >= PASS_PERCENTAGE:
             # Your have passed
             createHelpPrompt(subtopic,context,message="You have passed this subtopic, with a percentage of "+str(percentage)+". You can continue learning or choose to move to next subtopic")
+            all_topics = Topic.objects.all().order_by('order','-name')
+            next_subtopic = None
+            flag = False
+            for topic in all_topics:
+                for st in topic.subtopics:
+                    if flag:
+                        next_subtopic = st
+                    flag = st == subtopic
+            messages.success(request,"You have passed this subtopic, with a percentage of "+str(percentage)+". You can continue learning or choose to move to next subtopic")
+            if next_subtopic == None:
+                context['redirect_to'] = '/topics/'
+            else:
+                context['redirect_to'] = '/learn/'+str(next_subtopic.id)+'/'
         else:
             createHelpPrompt(subtopic,context,message="You have not passed this subtopic, with a percentage of "+str(percentage)+". You need "+str(PASS_PERCENTAGE) + " to pass to next subtopic.")
     context['history'] = Chat.objects.filter(subtopic=subtopic,learner=context['learner']).order_by('created_on')

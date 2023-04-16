@@ -26,3 +26,14 @@
         {% endif %}
     {% endfor %}
 </ul>
+{% if redirect_to%}
+<div class="hidden">
+<div id="redirect_to" data-val="{{redirect_to}}"></div>
+</div>
+<script>
+    var ele = document.getElementById('redirect_to');
+    var url = window.location.protocol +"//"+ window.location.hostname +':'+ window.location.port+ele.getAttribute("data-val")
+    console.log(url)
+    window.location.href = url;
+</script>
+{% endif %}

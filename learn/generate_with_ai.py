@@ -46,7 +46,7 @@ def is_this_answer_correct(subtopic,subtopic_description,question,answer):
     openai.api_key = os.getenv("OPENAI_API_KEY")
     messages = [
         {"role": "system", "content": "You are a teacher, you will teach me "+subtopic+", this is some description about the topic "+subtopic_description},
-        {"role": "user", "content": "Check if "+str(answer)+" is the correct answer to the question "+question+ ", return the answer with a yes or no and an explaination of 30 words"},
+        {"role": "user", "content": "Check if "+str(answer)+" is the correct answer to the question "+question+ ", return the answer with a yes or no and an explaination of 30 words, if the answer is wrong start with no"},
     ]
     input = ""
     for msg in messages:

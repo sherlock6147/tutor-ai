@@ -1,11 +1,4 @@
 from learners.models import Learner,Moderator
-# ACCESS_LEVELS = ADMIN-5, MODERATOR-4, LEARNER-3, NEW_USER-2, ANONYMOUS-0
-
-def get_access_level(request):
-    if request.user.is_authenticated:
-        pass
-    else:
-        return 0
 
 def prepare_context(request):
     context = {}
@@ -23,10 +16,4 @@ def prepare_context(request):
             context['is_moderator'] = True
             context['moderator'] = moderator
     print("starting context\n",context)
-    return context
-
-def allow_access(reuest, **kwargs):
-    access_levels = kwargs.get('levels',['NEW_USER'])
-    context = {}
-
     return context
