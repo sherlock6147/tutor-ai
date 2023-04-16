@@ -26,3 +26,13 @@ the db.qlite3 file and .env files are already provided in this case, please foll
 5. Now run the server
 
         python manage.py runserver
+
+6. Now you can login using google at [http://127.0.0.1:8000/](http://127.0.0.1:8000/) and explore the project
+
+Admin Password
+
+username - admin
+
+password - 1234
+
+You can use these credentials to login on the admin page at [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
