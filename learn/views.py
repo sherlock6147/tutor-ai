@@ -8,7 +8,7 @@ from django.contrib import messages
 from django.utils import timezone
 from django.contrib.auth.decorators import login_required
 
-PASS_PERCENTAGE = 75
+PASS_PERCENTAGE = 50
 
 # Create your views here.
 @login_required
